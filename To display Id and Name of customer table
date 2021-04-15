@@ -1,0 +1,1 @@
+select ID,NAME from customer order by ID, order by NAME in DESC;
