@@ -1,28 +1,37 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
-int main(){
-    char str[20];
+void polyndrome(){
+    char str[50];
     int i, length;
     int flag = 0;
     
     printf("Enter a string\n");
-    scanf("%s\n", str);
+    scanf("%[^\n]s",str);
     
     length = strlen(str);
     
-    for(i=0;i < length ;i++){
-        if(str[i] != str[length-i-1]){
+    for(i=0;i < length ;i++)
+    {
+        if(toupper(str[i]) != toupper(str[length-i-1]))
+        {
             flag = 1;
             break;
-   }
-}
+        }
+    }
     
     if (flag) {
-        printf("%s is not a palindrome\n", str);
+        printf("%s is not a polyndrome\n", str);
     }    
     else {
-        printf("%s is a palindrome", str);
+        printf("%s is a polyndrome", str);
     }
+}
+int main()
+{
+    printf("Main Program - calling polyndrome function\n");
+    polyndrome();
     return 0;
 }
+
