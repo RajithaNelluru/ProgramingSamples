@@ -1,0 +1,7 @@
+SELECT ID,NAME,
+      (CASE WHEN  Round((SUM(MARKS)) * 100/ SUM(MARKS),1) > 90 THEN 'A+'
+       WHEN  Round((SUM(MARKS)) * 100/ SUM(MARKS),1) > 70 THEN 'A'
+       WHEN  Round((SUM(MARKS)) * 100/ SUM(MARKS),1) > 50 THEN 'B'
+       WHEN  Round((SUM(MARKS)) * 100/ SUM(MARKS),1) >= 40 THEN 'C'
+       WHEN  Round((SUM(MARKS)) * 100/ SUM(MARKS),1) < 40 THEN 'FAIL' END)
+       AS Grade from students;
